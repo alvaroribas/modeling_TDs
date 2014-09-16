@@ -1,0 +1,7 @@
+nobs = 2
+obsid = ['1342187067', '1342187069']
+for i = 0, nobs - 1 do convert_hcssfits_pacs, $
+dir_in='/data/pacs/n4559/processed_obsid/', $
+dir_out='/data/pacs/n4559/input_scans/', $
+root=obsid(i)+'_blue', color='blue'
+

@@ -87,12 +87,12 @@ separately, save the merged scans into a fits file and combine them together:
 ################################################################################
 ########################### SETTINGS ###########################################
 """
-camera = "blue"
+camera = "red"
 
 # parallel
-obsids = [1342213178,1342213179]
+#obsids = [1342213178,1342213179]
 # 100 microns
-#obsids = [1342224782,1342224783]
+obsids = [1342224782,1342224783]
 
 solarSystemObject = False
 galactic = True

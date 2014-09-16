@@ -1,0 +1,8 @@
+The convertL1ToScanam.py script is now available within HIPE.
+To use it, include the following line in your processing script:
+   from herschel.pacs.spg.phot import ConvertL1ToScanamTask
+
+It will print the fraction of samples flagged as glitches.
+If this fraction is greater than 1%, it probably means that the
+deglitching was too aggressive, and it is then highly recommended
+to revise or cancel it.

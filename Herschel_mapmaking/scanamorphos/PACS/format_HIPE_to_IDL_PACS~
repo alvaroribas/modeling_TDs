@@ -1,0 +1,13 @@
+;;;Set of all obsid = ['1342213178', '1342213179','1342224782','1342224783']
+nobs = 2
+obsid = ['1342224782','1342224783']
+for i = 0, nobs - 1 do convert_hcssfits_pacs, $
+dir_in='/pcdisk/stark/aribas/Desktop/modeling_TDs/remaps_Cha/PACS/scanamorphos/L1/chai_processed_obsids/', $
+dir_out='/pcdisk/stark/aribas/Desktop/modeling_TDs/remaps_Cha/PACS/scanamorphos/intermediate/', $
+root=obsid(i)+'_red', color='red'
+
+
+
+
+
+
