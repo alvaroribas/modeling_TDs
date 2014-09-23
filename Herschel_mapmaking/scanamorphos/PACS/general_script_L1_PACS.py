@@ -45,7 +45,7 @@ n_obs = 2
 
 
 ## observations:
-table_obs = asciiTableReader(file=dir_root+'results_slow.csv', tableType='CSV', skipRows=1)
+table_obs = asciiTableReader(file=dir_root+'results_fast.csv', tableType='CSV', skipRows=1)
 list_obsids = table_obs[0].data
 list_names = table_obs[1].data
 
