@@ -59,3 +59,24 @@ def convertDec(dec):
              aux_minutes + str(minutes) +':'+\
              aux_seconds + str(seconds)
     return result
+
+
+def coords_randomizer(ra_center, dec_center, r_min, r_max):
+    """Function to randomize a central coordinate with a central coordinate and
+    given inner and outer radii).  It will do it with a uniform
+    probability.  Note that this is NOT the correct formula, it will
+    only work for small r_min y r_max.
+    - r_min and r_max, in arcsec
+    """
+    # convert r_max r_min to deg
+    r_min /= 3600.
+    r_max /= 3600.
+    radius_displacement = r_min + (r_max - r_min) * random()
+    orientation = 2 * 3.1415 * random()
+
+    new_ra = ra_center + radius_displacement * cos(orientation)
+    new_dec = dec_center + radius_displacement * sin(orientation)
+    new_coords = [new_ra, new_dec]
+    return new_coords
+
+
