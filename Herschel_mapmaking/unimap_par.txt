@@ -1,0 +1,50 @@
+=============== % Params for Unimap 5.5.0 - Delete this file and run Unimap to produce defaults ====== 
+  		% data_path - working directory 
+250  			% max_ite_par - positive integer - global iteration limit 
+0				% start_module - positive integer - first module to execute (1 = top, 2 = pre etc) - if 0 start from 1 and clear the log 
+8				% stop_module - positive integer - last module to execute (1 = top, 2 = pre, ..., 8 wgls) 
+1				% save_eval_data - 0/1 - if 1 save evaluation data  
+1	  			% save_tops - 0/1 - if 1 saves the intermediate tops 
+=============== % 1: Top =========================================================== 
+0   			% top_use_galactic - 0/1 - if 1 use galactic coords, if 0 keep equatorial
+1    			% top_use_gnomonic	- 0 = no projection (CAR), 1 = gnomonic (TAN), 2 = cylindric eq area (CEA) 
+1   			% top_bolo_sub	- positive integer - bolometers subsampling 
+30   			% top_max_bad	- real in [0,100] - max percent of flagged samples to accept bolo 
+0   			% top_skip	- number of initial samples to skip 
+2   			% top_unit	- if 0 MJy/sr, if 1 Jy/pixel, if 2 Jy/beam (SPIRE only) 
+0   			% top_pixel_size - real - if 0 use default (Hi-GAL), otherwise pixel size (arcsec) 
+Inf   			% top_cva1 - [0..360] ref point coord1 in the proj plane (proj center) (degree) - if Inf use map center 
+0   			% top_cva2 - [-90..90] ref point coord2 in the proj plane (degree)  
+Inf   			% top_cpi1 - real - ref point coord1 in the pixel plane (pixel) - if Inf use matrix center 
+0   			% top_cpi2 - real - ref point coord2 in the pixel plane  (pixel) 
+0  	 			% top_nax1 - Positive integer - number of pixels on the first axis - if negative or zero use minimum 
+0   			% top_nax2 - Positive integer - number of pixels on the second axis  
+=============== % 2: Pre =========================================================== 
+0 				% pre_threshold - positive real - threshold for calibration detection (0 = suppress detection, lower = more detection, e.g. 20) - if negative triggers specific protection 
+2   			% pre_jump_threshold - positive real - Threshold for jump detection (0 suppress detection, lower more detection, e.g. 2). 
+25   			% pre_jump_hfwin - positive real - Window length for hcb (e.g. 25). 
+0  				% pre_onset_len - positive integer - len of onset (samples) - if 0 suppress onset removal 
+=============== % 3: Glitch =========================================================== 
+25  			% glitch_hfwin - positive integer - half len of the highpass filter (samples) 
+0   			% glitch_sub - positive integer - subsampling for glitch search (pixels). If zero compute it. If -1 skip deglitch
+0   			% glitch_max_dev - positve real - threshold to declare a readout a glitch (lower = more detection, 0 = adaptive threshold, e.g. 6) 
+=============== % 4: Drift =========================================================== 
+3   			% drift_poly_order - positive integer - polynomial order
+.1   			% drift_min_delta - real - minimum improvement to continue iteration (dB) (lower = more iteration) 
+0				% drift_each_bolo - -1/0/1 - if -1 skip dedrift, 0 dedrift by subarray, 1 dedrift by bolo 
+=============== % 5: Noise =========================================================== 
+1   			% noise_apply_flag - if 0 use the reconstructed readouts, if 1 remove flags 
+3   			% noise_filter_type - 0 raw unit power, 1 fit unit power, 2 raw estimated power, 3 fit estimated power, 4 raw avefilt, 5 fit avefilt 
+50  			% noise_filter_hflen - positive integer - half len of the gls noise filter response (samples), e.g. 50 
+=============== % 6: GLS =========================================================== 
+0   			% gls_continue - if 1 start from the saved data of the last step 
+1   			% gls_start_image - 0 zero img, 1 rebin, 2 highpass. 
+0   			% gls_apply_precond - 0/1 - if 1 do preconditioning  
+-60   			% gls_min_delta - real - minimum change in the map to keep iterating (dB) (lower = more iteration,-Inf run all the iterations, e.g. -60) 
+=============== % 7: PGLS =========================================================== 
+0   			% pgls_continue - if 1 start from the saved data of the last step 
+30  			% pgls_hfwin - positive integer - half len of the pgls highpass filter (samples) e.g. 20 
+4  				% pgls_num_ite - positive integer - number of pgls iterations to perform 
+=============== % 8: WGLS =========================================================== 
+3    			% wgls_dthresh - positve real - threshold to detect an artifact (lower = more artifacts) 
+1.5 				% wgls_gthresh - positve real - threshold to grow an artifact  (lower = wider artifacts) 

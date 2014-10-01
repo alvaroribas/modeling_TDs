@@ -1,11 +1,11 @@
 ##############################################################
 # Álvaro Ribas, aribas@cab.inta-csic.es
-# 15/09/2014
+# 30/09/2014
 # HIPE script: usual modules such as numpy are not available
 
 
 def convertRA(ra):
-	""" Convert a RA value in format dd.dddd to dd:mm:ss.ss 
+    """ Convert a RA value in format dd.dddd to dd:mm:ss.ss 
 	Needed for the AnnularSkyAperturePhotometry tool"""
     hours = ra * 24. / 360
     minutes = (hours - int(hours)) * 60.
@@ -30,7 +30,7 @@ def convertRA(ra):
 
 
 def convertDec(dec):
-	""" Convert a Dec value in format dd.dddd to +-dd:mm:ss.ss
+    """ Convert a Dec value in format dd.dddd to +-dd:mm:ss.ss
 		Needed for the AnnularSkyAperturePhotometry tool"""
 
     sign = 1
@@ -71,12 +71,12 @@ def coords_randomizer(ra_center, dec_center, r_min, r_max):
     # convert r_max r_min to deg
     r_min /= 3600.
     r_max /= 3600.
-    radius_displacement = r_min + (r_max - r_min) * random()
-    orientation = 2 * 3.1415 * random()
+    random1 = random.random()
+    random2 = random.random()
+    radius_displacement = r_min + (r_max - r_min)*random1
+    orientation = 2 * 3.1415 * random2
 
-    new_ra = ra_center + radius_displacement * cos(orientation)
-    new_dec = dec_center + radius_displacement * sin(orientation)
+    new_ra = ra_center + radius_displacement * math.cos(orientation)
+    new_dec = dec_center + radius_displacement * math.sin(orientation)
     new_coords = [new_ra, new_dec]
     return new_coords
-
-

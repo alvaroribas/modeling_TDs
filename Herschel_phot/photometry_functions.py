@@ -1,3 +1,8 @@
+##############################################################
+# Álvaro Ribas, aribas@cab.inta-csic.es
+# 30/09/2014
+# HIPE functions: usual modules such as numpy are not available
+
 def pacsPhotometry(ra, dec, radii, image_pacs, band_pacs, calTree):
     """ Function to compute annular aperture photometry on PACS data.
     It returns photometry already aperture-corrected photometry. 
@@ -23,7 +28,7 @@ def pacsPhotometry(ra, dec, radii, image_pacs, band_pacs, calTree):
                                                radiusArcsec=raper,\
                                                innerArcsec=rskyin,outerArcsec=rskyout)
     # obtain aperture correction factor
-    corrected_phot_value = photApertureCorrectionPointSource(apphot=phot_value, band=pacs_band,\
+    corrected_phot_value = photApertureCorrectionPointSource(apphot=phot_value, band=band_pacs,\
                                                              calTree = calTree, \
                                                              responsivityVersion=6)
     # We will NOT make any color correction for PACS, 
@@ -34,7 +39,7 @@ def pacsPhotometry(ra, dec, radii, image_pacs, band_pacs, calTree):
 
 
 
-def spirePhotometry():(ra, dec, radii, image_spire, ap_correction = 1., color_correction = 1.):
+def spirePhotometry(ra, dec, radii, image_spire, ap_correction = 1., color_correction = 1.):
     """ Function to compute annular aperture photometry on PACS data.
     It returns photometry already aperture-corrected photometry. 
     - coords_source: strings in hh:mm:ss.ss and (-) dd:mm:ss.s format
