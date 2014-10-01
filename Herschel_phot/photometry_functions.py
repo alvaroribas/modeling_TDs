@@ -3,7 +3,7 @@
 # 30/09/2014
 # HIPE functions: usual modules such as numpy are not available
 
-def pacsPhotometry(ra, dec, radii, image_pacs, band_pacs, calTree):
+def pacsPhotometry(ra, dec, radii, image_pacs, band_pacs, calTree, is_for_bg = False):
     """ Function to compute annular aperture photometry on PACS data.
     It returns photometry already aperture-corrected photometry. 
     - coords_source: strings in hh:mm:ss.ss and (-) dd:mm:ss.s format
@@ -34,12 +34,15 @@ def pacsPhotometry(ra, dec, radii, image_pacs, band_pacs, calTree):
     # We will NOT make any color correction for PACS, 
     # where the SED is flat.
     measured_flux = corrected_phot_value["Results table"]["Total flux"].data[2]
-    #
+    # in case the measurement is for the sky std, do not substract the background: 
+    # could create problems with the source
+    if is_for_bg:
+		measured_flux = corrected_phot_value["Results table"]["Total flux"].data[0]
     return measured_flux
 
 
 
-def spirePhotometry(ra, dec, radii, image_spire, ap_correction = 1., color_correction = 1.):
+def spirePhotometry(ra, dec, radii, image_spire, ap_correction = 1., color_correction = 1., is_for_bg = False):
     """ Function to compute annular aperture photometry on PACS data.
     It returns photometry already aperture-corrected photometry. 
     - coords_source: strings in hh:mm:ss.ss and (-) dd:mm:ss.s format
@@ -65,6 +68,10 @@ def spirePhotometry(ra, dec, radii, image_spire, ap_correction = 1., color_corre
                                                innerArcsec=rskyin,outerArcsec=rskyout)
 
     value = phot_value["Results table"]["Total flux"].data[2]
+    # in case the measurement is for the sky std, do not substract the background: 
+    # could create problems with the source
+    if is_for_bg:
+		value = phot_value["Results table"]["Total flux"].data[0]
     # apply aperture correction (divide)
     value = value / ap_correction
     # apply color correction (multiply)

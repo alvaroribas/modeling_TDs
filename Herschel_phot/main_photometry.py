@@ -199,12 +199,12 @@ for instrument in instruments:
                             dec_new = convertDec(position[1])
                             if instrument == 'PACS':
                                 value = pacsPhotometry(ra_new, dec_new,\
-                                                    radii_phot, image, band, calTree = cal_to_use)
+                                                    radii_phot, image, band, calTree = cal_to_use, is_for_bg = True)
                             if instrument == 'SPIRE':
                                 # ap correction already computed before
                                 value = spirePhotometry(ra_new, dec_new,\
                                                      radii_phot, image, 
-                                                    ap_correction = ap_correction, color_correction = color_correction)
+                                                    ap_correction = ap_correction, color_correction = color_correction, is_for_bg = True)
                             # If *ANY* value is out, we will leave
                             # that source. It probably means wrong
                             # background estimation from the annulus
