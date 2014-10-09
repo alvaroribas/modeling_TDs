@@ -186,7 +186,7 @@ for instrument in instruments:
                 sky_std = 'NaN'
                 # Background stddev calculation, only if the were no problems during
                 if is_good:
-                    # we will try generating 100 positions around, and compute the stddev
+                    # we will try generating 1000 positions around, and compute the stddev
                     sky_values = []
                     # aperture value is now the recommended one
                     r_min = 2 *aperture_value
