@@ -193,7 +193,7 @@ for instrument in instruments:
                     r_max = 4 *aperture_value
                     try:
                         is_out = False
-                        for index_aperture in xrange(100):
+                        for index_aperture in xrange(1000):
                             position = coords_randomizer(ra_source, dec_source, r_min, r_max)
                             ra_new = convertRA(position[0])
                             dec_new = convertDec(position[1])
